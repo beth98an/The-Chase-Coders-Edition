@@ -2,32 +2,32 @@
 // import {useSelector} from 'react-redux'
 
 export const userInfo=(obj=>async(dispatch)=>{
-    console.log("here is", obj)
+    console.log("here is", obj);
     dispatch({
         type:"USER_INFO",
         payload:obj
 
-    })
+    });
 
-})
+});
 export const updateScore=(obj=>async(dispatch)=>{
-    console.log("here is", obj)
+    console.log("here is", obj);
     dispatch({
         type:"UPDATE_SCORE",
         payload:obj
 
-    })
+    });
 
-})
+});
 export const selectedTopic=(obj=>async(dispatch)=>{
-console.log("here is", obj)
+console.log("here is", obj);
     dispatch({
         type:"SELECTED_TOPIC",
         payload:obj
 
-    })
+    });
 
-})
+});
 export const getTopicId = (topic) => {
     switch(topic){
         case 'General Knowledge':
@@ -48,8 +48,8 @@ export const getTopicId = (topic) => {
             return 27
         default:
             return ''
-    }
-}
+    };
+};
 
 //  export const GetQuestions = async() => {
 //     const UserDetails = useSelector(state=>state.UserDetails)

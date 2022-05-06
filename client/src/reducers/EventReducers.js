@@ -21,11 +21,11 @@ UserDetails:{
     name: '',
     players: 1,
     difficulty: '',
-    questions: 20,
+    questions: 10,
     room: null,  
 }
 
-}
+};
 export const EventReducers = (state= initialState, action)=>{
   
 switch(action.type){
@@ -34,21 +34,21 @@ switch(action.type){
         return{
             ...state,
             UserDetails:action.payload
-        }
+        };
     case "SELECTED_TOPIC":
         return{
             ...state,
             selectedTopic:action.payload
-        }
+        };
     case "UPDATE_SCORE":
         return{
             ...state,
             score:action.payload
-        }
+        };
 
     default:
         return state
 
-}
+    };
 
-}
+};

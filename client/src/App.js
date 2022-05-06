@@ -1,5 +1,5 @@
-import { Homepage } from './pages/Homepage'
-import { Topics } from "./pages/Topics"
+import { Homepage } from './pages/Homepage';
+import { Topics } from "./pages/Topics";
 import { Question } from './pages/Question';
 import {Results} from './pages/Results';
 import { Routes, Route } from "react-router-dom";
@@ -14,6 +14,6 @@ function App() {
       <Route path="/leaderboard" element={<Results />} />
     </Routes>
   );
-}
+};
 
 export default App;
