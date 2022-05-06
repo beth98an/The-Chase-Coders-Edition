@@ -2,9 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { updateScore } from '../../actions/EventActions';
+<<<<<<< HEAD
 import { Timer } from '../Timer';
+=======
+import { Timer } from '../Timer'
+import { getTopicId } from "../../actions/EventActions";
+import './style.css';
+>>>>>>> 0ad12112baf9613afbc200e32c9dd4d04d137914
 
 import axios from "axios";
+import { flushSync } from "react-dom";
 export const QuestionLayout = ({
   Questions,
   difficulty,
@@ -15,8 +22,18 @@ export const QuestionLayout = ({
   const [Shuffled, SetShuffled] = useState([]);
   const [score, SetScore] = useState(0);
   const [stopQuiz, SetStopQuiz] = useState(true);
+  // const [question, setQuestion]=useState([])
+  // const [questionIndex, setQuestionIndex] = useState(0)
+  const quizData = useSelector((state) => state.quizData);
+  // const [color, setColor] = useState('black')
+  // const [disabled, setDisabled] = useState(false)
   const navigate = useNavigate();
+<<<<<<< HEAD
   const dispatch = useDispatch();
+=======
+  const dispatch = useDispatch()
+  
+>>>>>>> 0ad12112baf9613afbc200e32c9dd4d04d137914
   useEffect(() => {
     let Options = [];
     if (Questions && Questions[index] && Questions[index].question) {
@@ -88,19 +105,45 @@ export const QuestionLayout = ({
     Questions.length
   );
   console.log(Shuffled);
+
+  // useEffect(()=>{
+  //   if(quizData?.length) {
+  //     const questions = quizData[questionIndex]
+  //     const question = [questions.question]
+  //     setQuestion(question)
+  //   } 
+  // }, [quizData, questionIndex])
+  
+  // const handleClick = (e) => {
+  //   const question = quizData[questionIndex]
+  //   if(e.target.value === question.correct_answer ){
+  //     setDisabled(true)
+
+  //     console.log(e.target)
+  //     setColor('green')
+  //     dispatch({
+  //       type: "UPDATE_SCORE",
+  //     });  
+  //   } else if (e.target.value !== question.correct_answer ){
+  //    setColor('red')
+  //     setDisabled(true)
+
+  //   }
+  
   return (
     <>
       <div className="container">
         {" "}
-        <div className="row " style={{ marginTop: "12%" }}>
+        <div className="row " style={{ marginTop: "7%"}}>
+        <h1 className="question">Question {index + 1}: </h1>
           {" "}
           {stopQuiz ? (
-            <div className="col-md-8 bg-primary">
+            <div className="col-md-8 questionName">
               <div className="p-4 d-flex justify-content-center align-items-center ">
-              <h1>Question {index + 1}: </h1>
+              
                 <h6
                   style={{ color: "Black" }}
-                  className="bg-light p-4 w-50 text-center border rounded"
+                  className=" questionPlace p-4 w-50 text-center "
                 >
                    {Questions && Questions[index] && Questions[index].question}
                 </h6>
@@ -110,7 +153,7 @@ export const QuestionLayout = ({
                   {Shuffled.map((item, i) => (
                     <button key={i}
                       style={{ color: "Black" }}
-                      className="option-btn bg-white border rounded"
+                      className=" option-btn bg-white border rounded"
                       onClick={optionPressed}
                       value={item}
                     >
@@ -122,31 +165,31 @@ export const QuestionLayout = ({
             </div>
           ) : navigate('/leaderboard')
           }
-          <div className="col-md-4 bg-secondary p-4">
+          <div className="col-md-4 p-4">
             {" "}
             <div className="p-4 d-flex justify-content-center align-items-center ">
               {" "}
               <h6
                 style={{ color: "black" }}
-                className="bg-light p-4 w-50 text-center border rounded">
+                className="font score bg-light p-4 w-50 text-center border rounded">
                 {" "}
                 Score: {score}
               </h6>{" "}
             </div>{" "}
-            <div className='p-2 d-flex  justify-content-center align-items-center rounded '>
-              <div className='' style={{marginRight:"10px",fontSize:"25px"}}>Time:</div>
-              <div  className='text-lg' style={{fontSize:"25px"}}><Timer/></div>
+            <div className='font p-2 d-flex  justify-content-center align-items-center rounded '>
+              <div className='timer' style={{marginRight:"10px",fontSize:"40px"}}>Time:</div>
+              <div  className='text-lg' style={{fontSize:"40px"}}><Timer/></div>
           </div>
             <div className="d-flex justify-content-center align-items-center">
               {" "}
-              <h6 className=" p-1  text-center " style={{ fontSize: "25px" }}>
+              <h6 className=" font p-1  text-center " style={{ fontSize: "40px" }}>
                 {" "}
                 Level: {difficulty}
               </h6>{" "}
             </div>{" "}
             <div className="d-flex justify-content-center align-items-center">
               {" "}
-              <h6 className=" p-1  text-center " style={{ fontSize: "25px" }}>
+              <h6 className="font p-1  text-center " style={{ fontSize: "40px" }}>
                 {" "}
                 Topic: {selectedTopic}
               </h6>{" "}
