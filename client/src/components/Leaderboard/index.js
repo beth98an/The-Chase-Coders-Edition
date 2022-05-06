@@ -3,17 +3,17 @@ import axios from 'axios';
 import './style.css';
 
 export const Leaderboard = () => {
-    const [leaderboard, setLeaderboard] = useState([])
+    const [leaderboard, setLeaderboard] = useState([]);
     const leaderboardFetch = async() =>{
-        const { data } = await axios.get('http://localhost:3001/leaderboard')
-        console.log(data)
-        setLeaderboard(data)
-    }
+        const { data } = await axios.get('http://localhost:3001/leaderboard');
+        console.log(data);
+        setLeaderboard(data);
+    };
     useEffect(() => {
-       leaderboardFetch()
-    }, [])
+       leaderboardFetch();
+    }, []);
     const renderRows = () => {
-        console.log(leaderboard)
+        console.log(leaderboard);
         return(leaderboard.map((user, i) => {return (
             <tr key={i}>
                 <td>{user.username}</td>
@@ -22,7 +22,7 @@ export const Leaderboard = () => {
         )}));
     };
     return (
-        <table classname="leaderboard">
+        <table className="lboard">
         <thead>
             <tr>
                 <th className="title"> Username </th>
@@ -33,5 +33,5 @@ export const Leaderboard = () => {
             {renderRows()}
         </tbody>
         </table>
-    )
-}
+    );
+};

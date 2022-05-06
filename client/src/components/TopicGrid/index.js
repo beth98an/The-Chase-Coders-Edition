@@ -1,31 +1,30 @@
-import React, { useState,useEffect } from 'react'
-import {FcLock} from "react-icons/fc"
-import {useSelector,useDispatch} from'react-redux'
+import React, { useState,useEffect } from 'react';
+import {FcLock} from "react-icons/fc";
+import {useSelector,useDispatch} from'react-redux';
 import { selectedTopic } from '../../actions/EventActions';
-import {useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom";
 
 export const TopicGrid = () => {
-    const [error,setError]=useState("")
-    const navigate=useNavigate()
-    const dispatch=useDispatch()
+    const [error,setError]=useState("");
+    const navigate=useNavigate();
+    const dispatch=useDispatch();
     const { Topics, userName } = useSelector(
         (state) => ({
         Topics: state.Topics,
         userName:state.UserDetails.name
-        }),
+        })
     );
     useEffect(()=>{
         if(!userName){
-            navigate("/")
-        }
-    })
-
+            navigate("/");
+        };
+    });
 
     function handleValue(value){
-        console.log(value,"here is value")
-        dispatch(selectedTopic(value))
-        navigate("/quiz")
-    }
+        console.log(value,"here is value");
+        dispatch(selectedTopic(value));
+        navigate("/quiz");
+    };
    
     return (
         <div className='container'>
@@ -54,8 +53,8 @@ export const TopicGrid = () => {
                         </div>
                     </button>
                     }</div>
-                ))}
+                ))};
             </div>
         </div>
-    )
-}
+    );
+};
