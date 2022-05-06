@@ -11,8 +11,13 @@
     margin: 20px auto;
 }
 
+<<<<<<< HEAD
 .lboard th, .lboard td {
     border: 5px solid rgb(238,174,202);
+=======
+.leaderboard th, .leaderboard td {
+    border: 5px solid #04AA6D;
+>>>>>>> 0ad12112baf9613afbc200e32c9dd4d04d137914
     padding: 5px;
 
 
